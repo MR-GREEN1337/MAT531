@@ -1,0 +1,48 @@
+# -*- coding: utf-8 -*-
+import numpy as np
+"""
+RTree module to build and manage rooted tree
+"""
+class Rtree:
+    """
+    A rooted tree is represented by an incidence matrix
+    """
+    def __init__(self, incidence):
+        self.incidence = incidence
+
+
+    def _contains_positive(a):
+        """
+	Return false if vector a contains positive value
+	root : Rtree → Node
+	"""
+        for i in range(a.shape[1]):
+            if a[0,i] > 0:
+                return False
+        return True
+    def root(self):
+	"""
+	Return the root of rooted tree
+	root : Rtree → Node
+	"""
+	# sum the column of adjacency matrix
+	sumLine = np.sum(self.incidence, axis=1)
+	# Convert sumCol matrix to list
+	sumLine = np.asarray(sumLine.ravel())[0].tolist()
+	# Extract all columns index sush that sum is 0
+	r = sumLine.index(min(sumLine))
+	return r
+
+    
+incidence = np.matrix([
+  [-1, -1, -1, 0,  0,  0],
+  [1,  0,  0, -1, -1, -1], 
+  [0,  1,  0,  0,  0,  0 ], 
+  [0,  0,  1,  0,  0,  0 ], 
+  [0,  0,  0,  1,  0,  0 ], 
+  [0,  0,  0,  0,  1,  0 ], 
+  [0,  0,  0,  0,  0,  1 ]])
+
+rt = Rtree(incidence)
+
+print(rt.root())

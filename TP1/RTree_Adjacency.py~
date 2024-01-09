@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+import numpy as np
+"""
+RTree module to build and manage rooted tree
+"""
+class Rtree:
+    """
+    A rooted tree is represented by an adjacency matrix
+    """
+    def __init__(self, adjacency):
+	self.adjacency = adjacency
+
+# test
+adjacency = np.matrix([
+[0, 1, 1, 1, 0, 0, 0], 
+[0, 0, 0, 0, 1, 1, 1], 
+[0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 0, 0, 0, 0, 0]] )
+
+rt = Rtree(adjacency)

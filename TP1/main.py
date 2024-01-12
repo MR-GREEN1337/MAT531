@@ -5,7 +5,7 @@ class Node:
 
 class RTree(Node):
     def __init__(self, root: Node, sub_tree: list[Node]):
-..........        self.sub_tree = sub_tree
+        self.sub_tree = sub_tree
 
     def display_tree_prof(self):
         if self.content is not None:
